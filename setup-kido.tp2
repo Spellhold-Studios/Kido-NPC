@@ -1,0 +1,379 @@
+BACKUP ~Kido\Backup~
+AUTHOR ~Deathsangel deathsangel@spellholdstudios.net~
+AUTO_TRA ~Kido/%s~
+
+LANGUAGE ~English~ ~english~ ~Kido\english\setup.tra~
+
+/************************************************************************
+ ************************************************************************
+ **                           Kido PC  v7.0                            **
+ **            This is a stand-alone NPC, later to be part             **
+ **                 of the larger Mod for the Wicked                   **
+ **                      Created by Guido Voets                        **
+ ************************************************************************
+ ************************************************************************/
+
+BEGIN @0
+
+REQUIRE_FILE ~Data\25Dialog.bif~ @1
+
+/********************************************************
+ * Files are done in the following order:
+ *
+ * ADDING THE NPC WITH HER ABILITIES AND VOICESET
+ * ADDING EPILOGUES
+ * PATCHING KIT.IDS AND STATE.IDS
+ * COMPILE DIALOGUE
+ * COMPILE, COPY AND APPEND SCRIPTS
+ * ADDING AND PATCHING NON-JOINABLE CREATURES
+ * ADDING SOUNDS
+ * ADDING ITEMS
+ * ADDING STORES
+ * ADDING DIALOGS TO THE CORRECT .2DA'S
+ * (UN)INSTALLING OF SOUNDS AND VIEWING OF READ-ME
+ * INSTALLING OF PORTRAITS
+ *
+ ********************************************************/
+
+/*******************************************************
+ * ADDING THE NPC WITH HER ABILITIES AND VOICESET
+ *******************************************************/
+
+COPY ~Kido\cre\MWKido.cre~ ~override\MWKido.cre~
+ SAY NAME1 @2
+ SAY NAME2 @2
+ SAY MORALE @3 
+ SAY HAPPY @4 
+ SAY UNHAPPY_ANNOYED @5 
+ SAY UNHAPPY_SERIOUS @6 
+ SAY UNHAPPY_BREAKING @7 
+ SAY BATTLE_CRY1 @8 
+ SAY LEADER @9 
+ SAY TIRED @10 
+ SAY BORED @11 
+ SAY HURT @12 
+ SAY SELECT_COMMON1 @13 
+ SAY SELECT_COMMON2 @14 
+ SAY SELECT_COMMON3 @15 
+ SAY SELECT_ACTION1 @16 
+ SAY SELECT_ACTION2 @17 
+ SAY SELECT_ACTION3 @18 
+ SAY DAMAGE @19 
+ SAY DYING @20 
+ SAY AREA_FOREST @21 
+ SAY AREA_CITY @22 
+ SAY AREA_DUNGEON @23 
+ SAY AREA_DAY @24 
+ SAY AREA_NIGHT @25 
+ SAY SELECT_ACTION4 @26 
+ SAY SELECT_ACTION5 @27 
+ SAY SELECT_ACTION6 @28 
+ SAY SELECT_RARE2 @29 
+ SAY CRITICAL_HIT @30 
+ SAY CRITICAL_MISS @31 
+ SAY TARGET_IMMUNE @32 
+ SAY INVENTORY_FULL @33 
+ SAY PICKED_POCKET @34 
+ SAY SPELL_DISRUPTED @35 
+ SAY BATTLE_CRY2 @36 
+ SAY BATTLE_CRY3 @37 
+ SAY SELECT_COMMON4 @38 
+ SAY SELECT_COMMON5 @39 
+ SAY SELECT_COMMON6 @40 
+ SAY SELECT_RARE1 @41 
+ SAY REACT_TO_DIE_GENERAL @42 
+ SAY BIO @43
+
+COPY ~Kido\cre\MWKido25.cre~ ~override\MWKido25.cre~
+ SAY NAME1 @2
+ SAY NAME2 @2
+ SAY MORALE @3 
+ SAY HAPPY @4 
+ SAY UNHAPPY_ANNOYED @5 
+ SAY UNHAPPY_SERIOUS @6 
+ SAY UNHAPPY_BREAKING @7 
+ SAY BATTLE_CRY1 @8 
+ SAY LEADER @9 
+ SAY TIRED @10 
+ SAY BORED @11 
+ SAY HURT @12 
+ SAY SELECT_COMMON1 @13 
+ SAY SELECT_COMMON2 @14 
+ SAY SELECT_COMMON3 @15 
+ SAY SELECT_ACTION1 @16 
+ SAY SELECT_ACTION2 @17 
+ SAY SELECT_ACTION3 @18 
+ SAY DAMAGE @19 
+ SAY DYING @20 
+ SAY AREA_FOREST @21 
+ SAY AREA_CITY @22 
+ SAY AREA_DUNGEON @23 
+ SAY AREA_DAY @24 
+ SAY AREA_NIGHT @25 
+ SAY SELECT_ACTION4 @26 
+ SAY SELECT_ACTION5 @27 
+ SAY SELECT_ACTION6 @28 
+ SAY SELECT_RARE2 @29 
+ SAY CRITICAL_HIT @30 
+ SAY CRITICAL_MISS @31 
+ SAY TARGET_IMMUNE @32 
+ SAY INVENTORY_FULL @33 
+ SAY PICKED_POCKET @34 
+ SAY SPELL_DISRUPTED @35 
+ SAY BATTLE_CRY2 @36 
+ SAY BATTLE_CRY3 @37 
+ SAY SELECT_COMMON4 @38 
+ SAY SELECT_COMMON5 @39 
+ SAY SELECT_COMMON6 @40 
+ SAY SELECT_RARE1 @41 
+ SAY REACT_TO_DIE_GENERAL @42 
+ SAY BIO @44
+
+/*******************************************************
+ * ADDING EPILOGUES
+ *******************************************************/
+
+COPY ~Kido/2da/Kidoend1.2da~ ~override~
+REPLACE ~99999~ @45
+
+COPY ~Kido/2da/Kidoend2.2da~ ~override~
+REPLACE ~99999~ @46
+
+/**********************************************************
+ * PATCHING KIT.IDS AND STATE.IDS - borrowed from CamDawg
+ **********************************************************/
+
+COPY_EXISTING ~kit.ids~ ~override~
+  REPLACE_TEXTUALLY ~.*\bTRUECLASS\b~              ~0x4000 TRUECLASS~
+  REPLACE_TEXTUALLY ~.*\bBERSERKER\b~              ~0x4001 BERSERKER~
+  REPLACE_TEXTUALLY ~.*\bWIZARDSLAYER\b~           ~0x4002 WIZARDSLAYER~
+  REPLACE_TEXTUALLY ~.*\bKENSAI\b~                 ~0x4003 KENSAI~
+  REPLACE_TEXTUALLY ~.*\bCAVALIER\b~               ~0x4004 CAVALIER~
+  REPLACE_TEXTUALLY ~.*\bINQUISITOR\b~             ~0x4005 INQUISITOR~
+  REPLACE_TEXTUALLY ~.*\bUNDEADHUNTER\b~           ~0x4006 UNDEADHUNTER~
+  REPLACE_TEXTUALLY ~.*\bMAGESCHOOL_ABJURER\b~     ~0x0040 MAGESCHOOL_ABJURER~
+  REPLACE_TEXTUALLY ~.*\bMAGESCHOOL_CONJURER\b~    ~0x0080 MAGESCHOOL_CONJURER~
+  REPLACE_TEXTUALLY ~.*\bMAGESCHOOL_DIVINER\b~     ~0x0100 MAGESCHOOL_DIVINER~
+  REPLACE_TEXTUALLY ~.*\bMAGESCHOOL_ENCHANTER\b~   ~0x0200 MAGESCHOOL_ENCHANTER~
+  REPLACE_TEXTUALLY ~.*\bMAGESCHOOL_ILLUSIONIST\b~ ~0x0400 MAGESCHOOL_ILLUSIONIST~
+  REPLACE_TEXTUALLY ~.*\bMAGESCHOOL_INVOKER\b~     ~0x0800 MAGESCHOOL_INVOKER~
+  REPLACE_TEXTUALLY ~.*\bMAGESCHOOL_NECROMANCER\b~ ~0x1000 MAGESCHOOL_NECROMANCER~
+  REPLACE_TEXTUALLY ~.*\bMAGESCHOOL_TRANSMUTER\b~  ~0x2000 MAGESCHOOL_TRANSMUTER~
+  REPLACE_TEXTUALLY ~.*\bMAGESCHOOL_GENERALIST\b~  ~0x4000 MAGESCHOOL_GENERALIST~
+  REPLACE_TEXTUALLY ~.*\bFERALAN\b~                ~0x4007 FERALAN~
+  REPLACE_TEXTUALLY ~.*\bSTALKER\b~                ~0x4008 STALKER~
+  REPLACE_TEXTUALLY ~.*\bBEASTMASTER\b~            ~0x4009 BEASTMASTER~
+  REPLACE_TEXTUALLY ~.*\bASSASIN\b~                ~0x400A ASSASIN~
+  REPLACE_TEXTUALLY ~.*\bBOUNTYHUNTER\b~           ~0x400B BOUNTYHUNTER~
+  REPLACE_TEXTUALLY ~.*\bSWASHBUCKLER\b~           ~0x400C SWASHBUCKLER~
+  REPLACE_TEXTUALLY ~.*\bBLADE\b~                  ~0x400D BLADE~
+  REPLACE_TEXTUALLY ~.*\bJESTER\b~                 ~0x400E JESTER~
+  REPLACE_TEXTUALLY ~.*\bSKALD\b~                  ~0x400F SKALD~
+  REPLACE_TEXTUALLY ~.*\bGODTALOS\b~               ~0x4013 GODTALOS~
+  REPLACE_TEXTUALLY ~.*\bGODHELM\b~                ~0x4014 GODHELM~
+  REPLACE_TEXTUALLY ~.*\bGODLATHANDER\b~           ~0x4015 GODLATHANDER~
+  REPLACE_TEXTUALLY ~.*\bTOTEMIC\b~                ~0x4010 TOTEMIC~
+  REPLACE_TEXTUALLY ~.*\bSHAPESHIFTER\b~           ~0x4011 SHAPESHIFTER~
+  REPLACE_TEXTUALLY ~.*\bBEASTFRIEND\b~            ~0x4012 BEASTFRIEND~
+  REPLACE_TEXTUALLY ~.*\bBARBARIAN\b~              ~0x0000 BARBARIAN~
+  REPLACE_TEXTUALLY ~.*\bWILDMAGE\b~               ~0x0000 WILDMAGE~
+  BUT_ONLY_IF_IT_CHANGES
+
+APPEND ~kit.ids~ ~0x4000 TRUECLASS~
+  UNLESS ~\bTRUECLASS\b~
+APPEND ~kit.ids~ ~0x0000 BARBARIAN~
+  UNLESS ~\bBARBARIAN\b~
+APPEND ~kit.ids~ ~0x0000 WILDMAGE~
+  UNLESS ~\bWILDMAGE\b~
+
+APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~
+             UNLESS ~CD_STATE_NOTVALID~
+
+/*******************************************************
+ * COMPILE DIALOGUE
+ *******************************************************/
+
+COMPILE ~Kido/d/MWKid.d~
+COMPILE ~Kido/d/MWKidP.d~
+COMPILE ~Kido/d/MWBKid.d~
+COMPILE ~Kido/d/MWKidJ.d~
+COMPILE ~Kido/d/MWKid25.d~
+COMPILE ~Kido/d/MWKidP25.d~
+COMPILE ~Kido/d/MWBKid25.d~
+COMPILE ~Kido/d/MWKidJ25.d~
+COMPILE ~Kido/d/MWDolf.d~
+COMPILE ~Kido/d/MWKichc.d~
+
+/*******************************************************
+ * COMPILE, COPY AND APPEND SCRIPTS
+ *******************************************************/
+
+COMPILE ~Kido/scripts/MWKidSC.baf~
+COMPILE ~Kido/scripts/MWKidS25.baf~
+COMPILE ~Kido/scripts/MWkdagRi.baf~
+COMPILE ~Kido/scripts/MWCySacr.baf~
+COMPILE ~Kido/scripts/MWDolf.baf~
+COMPILE ~Kido/scripts/MWKichc.baf~
+COMPILE ~Kido/scripts/MWKidfix.baf~
+COMPILE ~Kido/scripts/MWKiQuC.baf~
+
+EXTEND_BOTTOM ~Ar0509.bcs~ ~Kido/scripts/Ar0509.baf~
+EXTEND_BOTTOM ~Ar0510.bcs~ ~Kido/scripts/Ar0510.baf~
+EXTEND_BOTTOM ~Ar0400.bcs~ ~Kido/scripts/Ar0400.baf~
+
+EXTEND_TOP ~Ar6200.bcs~ ~Kido/scripts/MWKidbio.baf~
+EXTEND_TOP ~Anomen.bcs~ ~Kido/scripts/MWKidAn.baf~
+EXTEND_TOP ~Anom25.bcs~ ~Kido/scripts/MWKidA25.baf~
+EXTEND_TOP ~Korgan.bcs~ ~Kido/scripts/MWKidKor.baf~
+
+/*******************************************************
+ * ADDING AND PATCHING NON-JOINABLE CREATURES
+ *******************************************************/
+
+COPY_EXISTING ~AR0408.are~ ~override~
+  READ_LONG  0x54 "act_off"
+  READ_SHORT 0x58 "act_num"
+  FOR ( actor = ("%act_off%" + ("%act_num%" * 0x110)); actor >= "%act_off%"; actor = actor - 0x110 ) BEGIN
+    READ_ASCII ("%actor%" + 0x80) "creature"
+      PATCH_IF ("%creature%" STRING_COMPARE_CASE "SLILMAT" = 0) BEGIN
+       WRITE_ASCII ("%actor%" + 0x80) ~MWKIQUC~
+      END
+  END
+BUT_ONLY_IF_IT_CHANGES
+
+COPY ~Kido\cre\MWDolf.cre~ ~override\MWDolf.cre~
+SAY NAME1 @47
+SAY NAME2 @47
+
+COPY ~Kido\cre\MWKichc.cre~ ~override\MWKichc.cre~
+SAY NAME1 @48
+SAY NAME2 @48
+
+COPY ~Kido\cre\MWKichr.cre~ ~override\MWKichr.cre~
+SAY NAME1 @49
+SAY NAME2 @49
+
+COPY ~Kido\cre\MWKichm.cre~ ~override\MWKichm.cre~
+SAY NAME1 @50
+SAY NAME2 @50
+
+COPY ~Kido\cre\MWKicht.cre~ ~override\MWKicht.cre~
+SAY NAME1 @51
+SAY NAME2 @51
+
+COPY ~Kido\cre\MWKichw.cre~ ~override\MWKichw.cre~
+SAY NAME1 @52
+SAY NAME2 @52
+
+COPY ~Kido\cre\MWKiQuC.cre~ ~override\MWKiQuC.cre~
+SAY NAME1 @53
+SAY NAME2 @53
+
+COPY_EXISTING ~Arenthis.cre~ ~override~
+  WRITE_ASCII SCRIPT_GENERAL ~pries8b~
+
+COPY_EXISTING ~Dcleric.cre~ ~override~
+WRITE_ASCII 0x280 ~DCleric~
+
+COPY_EXISTING ~girl02.cre~ ~override~
+WRITE_ASCII 0x280 ~girl02~
+
+COPY_EXISTING ~ndog.cre~ ~override~
+WRITE_ASCII 0x280 ~ndog~
+
+COPY_EXISTING ~ndog.cre~ ~override/kdog.cre~
+SAY NAME1 @54
+SAY NAME2 @54
+WRITE_ASCII DEATHVAR ~kdog~
+
+/*******************************************************
+ * ADDING SOUNDS
+ *******************************************************/
+
+COPY ~Kido\audio~ ~override~
+
+/*******************************************************
+ * ADDING ITEMS
+ *******************************************************/
+
+COPY ~Kido\items\mwkhood.itm~ ~override~
+SAY NAME1 @55
+SAY NAME2 @55
+SAY DESC @56
+SAY UNIDENTIFIED_DESC @57
+
+COPY ~Kido\items\mwkihosy.itm~ ~override~
+SAY NAME1 @58
+SAY NAME2 @58
+SAY DESC @59
+SAY UNIDENTIFIED_DESC @60
+
+COPY ~Kido\items\mwkdagg.itm~ ~override~
+SAY NAME1 @61
+SAY NAME2 @61
+SAY DESC @62
+SAY UNIDENTIFIED_DESC @63
+
+COPY ~Kido\items\mwikdagg.itm~ ~override~
+SAY NAME1 @61
+SAY NAME2 @61
+SAY DESC @64
+SAY UNIDENTIFIED_DESC @65
+
+COPY ~Kido\items\MWChSacr.itm~ ~override~
+SAY NAME1 @66
+SAY NAME2 @66
+SAY DESC @67
+SAY UNIDENTIFIED_DESC @67
+
+/*******************************************************
+ * ADDING STORES
+ *******************************************************/
+
+COPY ~Kido/Store/mwdolf.sto~  ~override/mwdolf.sto~
+  SAY 0xc @68
+
+/*******************************************************
+ * ADDING DIALOGS TO THE CORRECT .2DA'S
+ *******************************************************/
+
+APPEND ~pdialog.2da~
+~MWKido      MWKidP      MWKidJ      MWKidD      MWKidP25      MWKidJ25      MWKidD25      MWKid25~
+UNLESS ~MWKido~
+
+APPEND ~interdia.2da~
+~MWKido      MWBKid      MWBKid25~
+UNLESS ~MWKido~
+
+/*******************************************************
+ * (UN)INSTALLING OF SOUNDS AND VIEWING OF READ-ME
+ *******************************************************/
+
+AT_INTERACTIVE_EXIT ~Kido\Kidoaudio.bat~
+AT_INTERACTIVE_EXIT ~Kido\Kidoaudiouninstall.bat~
+AT_INTERACTIVE_EXIT ~VIEW Kido\Kido-readme.htm~
+
+/*******************************************************
+ * INSTALLING OF PORTRAITS
+ *******************************************************/
+
+BEGIN @69
+SUBCOMPONENT @70
+
+COPY ~Kido\portraits\3KidoL.bmp~ ~override\Kidol.bmp~
+COPY ~Kido\portraits\3KidoM.bmp~ ~override\Kidom.bmp~
+COPY ~Kido\portraits\3KidoS.bmp~ ~override\Kidos.bmp~
+
+BEGIN @71
+SUBCOMPONENT @70
+
+COPY ~Kido\portraits\KidoLG.bmp~ ~override\Kidol.bmp~
+COPY ~Kido\portraits\KidoMG.bmp~ ~override\Kidom.bmp~
+COPY ~Kido\portraits\KidoSG.bmp~ ~override\Kidos.bmp~
+
+BEGIN @72
+SUBCOMPONENT @70
+
+COPY ~Kido\portraits\Kidolo.bmp~ ~override\Kidol.bmp~
+COPY ~Kido\portraits\Kidomo.bmp~ ~override\Kidom.bmp~
+COPY ~Kido\portraits\Kidoso.bmp~ ~override\Kidos.bmp~

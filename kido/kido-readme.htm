@@ -1,0 +1,676 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript">
+<!--
+function mail(text)
+    {
+    bits=text.split("###");
+    document.write("<a href=\"mailto:"+bits[0]+"@"+bits[2]+"\">"+bits[4]+"</a>");
+    }
+-->
+</script>
+
+<style type="text/css">
+/*<![CDATA[*/
+<!-- 
+  body {
+    cursor: default;
+    text-align: center;
+    color: #000;
+    background-color: #A1A1A1;
+    margin-top: 20px;
+    margin-bottom: -20px;
+    xwidth: 98%;
+  }
+  
+  #headerdiv-top {
+    text-align: center;
+    font-family: Verdana, Trebuchet MS, Arial, serif;
+    font-size: 200%;
+    font-weight: bold;
+    line-height: 73%;
+    color #020F1D;
+    background-color: #fff;
+    padding: 15px 0px 15px 0px;
+    margin: 0px auto;
+    border-left: solid 1px #532529;
+    border-right: solid 1px #532529;
+    border-bottom: solid 1px #532529;
+    border-top: solid 3px #532529;
+    width: 90%;
+    position: relative;
+    display: block;
+  }
+  
+  #headerdiv-middle {
+    text-align: center;
+    font: italic 75% Verdana, Trebuchet MS, Arial, serif;
+    color: #bbb;
+    font-weight: normal;
+    background-color: #F1F1F1;
+    width: 90%;
+    border-left: solid 1px #532529;
+    border-right: solid 1px #532529;
+    margin: 0px auto;
+    padding: 10px 0px 10px 0px;
+    position: relative;
+    display: block;
+  }
+  
+  .headerdiv-line {
+    color: #532529;
+  }
+  
+  #headerdiv-middle a:link, #headerdiv-middle a:visited {
+    text-decoration: underline;
+    background-color: transparent;
+    color: #000;
+  }
+  
+  #headerdiv-middle a:focus, #headerdiv-middle a:hover {
+    text-decoration: underline;
+    color: #532539;
+  }
+  
+  #headerdiv-middle a:active {
+    color: #000;
+    text-decoration: line-through;
+    border: none;
+  }
+
+  #headerdiv-bottom {
+    text-align: center;
+    font: 83% Verdana, Trebuchet MS, Arial, serif;
+    color: #aaa;
+    padding: 8px 0px 8px 0px;
+    margin: 0px auto;
+    border-left: solid 1px #532529;
+    border-right: solid 1px #532529;
+    border-bottom: solid 3px #532529;
+    border-top: solid 1px #bbb;
+    width: 90%;
+    background-color: #F1F1F1;
+    position: relative;
+    display: block;
+  }
+
+  #maindiv {
+    text-align: center;
+    font-family: Verdana, Trebuchet MS, Arial, serif;
+  }
+  
+  #maindiv div {
+    background-color: #F1F1F1;
+    color: #020F1D;
+    padding: 11px 0px 25px 0px;
+    margin: 50px auto;
+    border-width: 1px 1px 4px 10px;
+    border-style: solid;
+    border-color: #532529;
+    width: 80%;
+    position: relative;
+    display: block;
+  }
+  
+  #maindiv div::before {
+    content: counter(kman, lower-roman);
+    counter-increment: kman;
+    font-size: 100%;
+    font-weight: bold;
+    color: #fff;
+    background-color: #532529;
+    width: 42px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: block;
+  }
+  
+  #maindiv p {
+    font-size: 83%;
+    font-style: normal;
+    text-align: justify;
+    line-height: 160%;
+    padding: 0px;
+    margin: 10px auto;
+    width: 90%;
+    display: block;
+  }
+  
+  #headerdiv-bottom a:link, #headerdiv-bottom a:visited {
+    font-weight: bold;
+    text-decoration: none;
+    background-color: transparent;
+    color: #000;
+  }
+  
+  #headerdiv-bottom a:focus, #headerdiv-bottom a:hover {
+    text-decoration: none;
+    color: #532539;
+  }
+  
+  #headerdiv-bottom a:active {
+    color: #000;
+    text-decoration: line-through;
+    border: none;
+  }
+  
+  #maindiv address a:link, #maindiv address a:visited {
+    font-weight: bold;
+    text-decoration: underline;
+    background-color: transparent;
+    color: #fff;
+  }
+  
+  #maindiv address a:focus, #maindiv address a:hover {
+    text-decoration: underline;
+    color: #532539;
+  }
+  
+  #maindiv address a:active {
+    color: #fff;
+    text-decoration: line-through;
+    border: none;
+  }
+  
+  #maindiv address {
+    font-size: 70%;
+    font-style: normal;
+    text-decoration: none;
+    color: #959FAA;
+    background-color: #532529;
+    padding: 3px 0px 0px;
+    margin: 0px;
+    width: 100%;
+    position: absolute;
+    bottom: -1px;
+    left: 0px;
+    display: block;
+    text-align: right;
+  }
+
+  .address-footer-1 {
+    letter-spacing: 0.2em;
+  }
+  
+  h4 {
+    font-family: Verdana, Trebuchet MS, Arial, serif;
+    font-size: 150%;
+    text-align: left;
+    text-indent: 30px;
+    padding: 0px 0px 0px 0px;
+    border-bottom: dotted 2px #ddd;
+  }
+
+  h5 {
+    font-family: Verdana, Trebuchet MS, Arial, serif;
+    font-size: 120%;
+    text-align: left;
+    text-indent: 30px;
+    padding: 0px 0px 0px 0px;
+  }
+
+  h4::first-letter {
+    color: #532529;
+    background-color: transparent;
+  }
+  
+  body h1, body #maindiv h3, h1+h2, body #maindiv h4 {
+  font-weight: bold;
+  display: block;
+  }
+  
+  #maindiv .divimp {
+    font-size: 80%;
+    font-family: Verdana;
+    text-align: left;
+    background-color: #E1E1E1;
+    border-top: solid 1px #bbb;
+    border-bottom: solid 1px #bbb;
+    border-left: solid 6px #bbb;
+    border-right: solid 6px #bbb;
+    padding: 10px;
+    margin: 20px auto;
+    line-height: 150%;
+  }
+  
+  #maindiv .divimp::before {
+    display: none;
+  }
+  
+  #maindiv .divimp p {
+    font-size: 100%;
+    text-indent: 0px;
+  } 
+  
+  .list-numbered {
+    list-style-type: decimal;
+    margin-top: 0px;
+  }
+  
+  #headerdiv-top-fw {
+    font-size: 40%;
+    color: #532529;
+    margin: 0px;
+		padding-top: 9px;
+		display: block;
+  }
+  
+  .faq-q {
+    font-weight: bold;
+    font-style: italic;
+    text-align: justify;
+  }
+    
+  .faq-a {
+    text-align: justify;  
+  }
+  
+  #maindiv .version {
+    display: block;
+    width: 100%;
+    background-color: #F1F1F1;
+    text-align: left;
+    text-indent: 30px;
+    font-style: italic;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-bottom: solid 1px #bbb;
+    border-top: solid 1px #bbb;
+  }
+  
+  .version-list {
+    line-height: 150%;
+    font-size: 80%;
+    text-align: left;
+    list-style-type: square;
+  }
+-->
+/*]]>*/
+</style><title>The Mod for the Wicked Readme</title>
+
+
+
+			<!--<script language="javascript" src="SPELLHOLD%20STUDIOS%20-%20readme_files/js.js"></script>--></head>
+
+
+  <body>
+    <a name="top" id="top"></a>
+    <div id="headerdiv-top">
+      The Mod for the Wicked<br>
+      <span id="headerdiv-top-fw">A Spellhold Studios mod</span>
+    </div>
+    <div id="headerdiv-middle">
+      	<span class="headerdiv-line">Author: <a href="mailto:deathsangel@spellholdstudios.net">Deathsangel</a></span> |
+	<span class="headerdiv-line"><a href="http://forums.spellholdstudios.net/index.php?s=f0e4572809fc416c034f908089da9cb9&showforum=149" target="_blank">Forum</a> (opens new window)</span> |
+	<span class="headerdiv-line"><a href="http://www.geocities.com/fanaticfantasyfan/index.html" target="_blank">The Mod's homepage</a></span>
+ <span class="headerdiv-line">Version: 7.0</span>
+    </div>
+    <div id="headerdiv-bottom">
+      <a href="#intro">Introduction</a> | <a href="#compatibility">Compatibility notes</a> | <a href="#installation">Installation</a> | <a href="#components">Components</a> | <a href="#faq">FAQ</a> | <a href="#version">Version history
+</a> | <a href="#credits">Credits</a> | <a href="#contact">Contact info</a>
+    </div><a name="intro" id="intro"></a>
+    <div id="maindiv">
+
+      <!-- ================== I n t r o d u c t i o n ================== -->
+      <div>
+        <h4>
+          Introduction
+        </h4>
+        <p>
+          This is actually the read me of the stand alone Kido, but he is part of the bigger mod I'm working on: The Mod for the Wicked. This mod now must have a PG-13 warning! This mod was made, for one part, to increase roleplay. I am against any evil act in real life and none of the things presented in the Kido mod or the entire Mod for the Wicked should in any way be copied in to deeds preformed in real life!<br>
+<br>
+Version 7 adds no extra content, but changes the files, so that later Kido can be easily integrated into the MftW.<br>
+<br>
+Though Kido has been bug-tested already for quite a bit, he might still contain bugs. I should put more times in to tests, but I'm quite impatient. So that is why it is already out. Please report any bugs to his forum called The Mod for the Wicked at Spellhold Studios (which is the bigger mod he is part of)<br>
+<br>
+Kido requires ToB to work.
+		</p>
+        <address>
+          <span class="address-footer-1">The Mod for the Wicked; Introduction</span>
+            <a href="#top">BACK TO TOP</a>
+        </address>
+      </div>
+
+      <!-- ================== C o m p a t i b i l i t y ================== -->
+      <a name="compatibility" id="compatibility"></a>
+      <div>
+        <h4>
+          Compatibility notes
+        </h4>
+        <p>
+          There are no specific install order requests, so install this mod before all mods that are listed as needing to be installed last. As far as known there are no more compatibility problems. There is one with Refinements versions that are older then version 3.
+		<address>
+          <span class="address-footer-1">The Mod for the Wicked; Compatibility Notes</span>
+            <a href="#top">BACK TO TOP</a>
+        </address>
+      </div>
+
+      <!-- ================== I n s t a l l a t i o n ================== -->
+      <a name="installation" id="installation"></a>
+      <div>
+        <h4>
+          Installation
+        </h4>
+        <h5>
+        	Windows
+        </h5>
+        <p>
+Kido, is packed as a rar file. The files can be extracted from the archive using WinRar. If properly extracted (that is extracted into your Bg2 folder), you should have a kido folder, and Setup-Kido.exe in your BG2 folder. To install, simply double-click Setup-Kido.exe and follow the instructions on screen.
+		  <br>
+		  <br>Please re-run Setup-Kido.exe in your BG2 folder to reinstall, uninstall or otherwise change components.
+		</p>
+        <address>
+          <span class="address-footer-1">The Mod for the Wicked; Installation</span>
+            <a href="#top">BACK TO TOP</a>
+        </address>
+      </div>
+
+			<!-- ================== C o m p o n e n t s ================== -->
+      <a name="components" id="components"></a>
+      <div>
+        <h4>
+          Components
+        </h4>
+        <p>
+          List of currently available components (though it is not really worth mentioning):
+        </p>
+        <div class="divimp">
+          <ul class="list-numbered">
+            <li><a href="#c0">Kido, The Jester</a><br>
+            </li>
+            <li><a href="#c1">Kido's portraits (3 seperate possibilities)</a><br>
+            </li>
+        </div>
+        </p>
+
+				<a name="c0" id="Kido, The Jester"></a>
+        <h5>
+					Kido, The Jester
+				</h5>
+        <p>
+        <div class="divimp">
+          The main component and of course necessary to install. Install Kido with all his wickedness, strange humor and funny remarks
+        </div>
+        </p>
+
+        <a name="c1" id="Kido's portraits (3 seperate possibilities)"></a>
+        <h5>
+					Kido's portraits
+				</h5>
+        <p>
+        <div class="divimp">
+		There are three portraits set you can choose from. The default portrait is created by Plasmocat; the alternative by Black Mage. Both are from a group of great artist, that you can find via <a href="http://sol-ek-sa.forgottenwars.net">this link</a>. You can also still opt for the first portrait used for Kido, which is actually the BG1 portrait of Coran, but I can not see in that portait an elven fighter/thief specialised in the bow... so that is why I used it.<br>
+My tip is to take a look at the portraits first before installing them. You can view them by going to the Kido folder and then look in the portraits folder.
+		</div>
+        </p>
+        <address>
+          <span class="address-footer-1">The Mod for the Wicked; Components</span>
+          <a href="#top">BACK TO TOP</a>
+        </address>
+      </div>
+
+			<!-- ================== F A Q ================== -->
+      <a name="faq" id="faq"></a>
+      <div>
+        <h4>
+          Frequently Asked Questions
+        </h4>
+        <p>
+          <span class="faq-q">Q: Where can I find Kido?</span><br>
+          <span class="faq-a">A: In the Five Flagons Inn. He either be in the basement, where he will is applauding for Biff the Understudy, or upstairs depending on what you've done before you pick him up.</span><br><br>
+
+          <span class="faq-q">Q: Is Kido not of an illegal alignment?</span><br>
+          <span class="faq-a">A: Yes, he is, but he has an explanation for this. (even with a certain mod installed he is not illegal anymore, but I didn't base it on that)</span><br><br>
+
+          <span class="faq-q">Q: I've killed the mad cleric in the docks district. Did I now kill the possibility to do Kido's quest?</span><br>
+          <span class="faq-a">A: Yep, you did. To still be able to do it use CLUAConsole:CreateCreature("dolf"). It is not the same one, but trust me that you need that one.</span><br><br>
+
+          <span class="faq-q">Q: He, I slept like days in game at, so that Dolf might be finished with his ritual. When does that happen? I mean he doesn't even talk to me anymore.</span><br>
+          <span class="faq-a">A: There are actually two checks. One is a timer and one is Kido's level. This is in order to prevent a too powerful weapon to emerge very early in the game. He doesn't talk to you anymore, simply because he is angry cause he already told you to wait.</span><br><br>
+
+          <span class="faq-q">Q: Wha! Kido is talking all weird and stuff. What must I do or is that part of the game?</span><br>
+          <span class="faq-a">A: Yes and no. If he is talking his usual weird stuff, then yes it is part of the game. However, if he just saying all strange lines that are obviously not his, then you strings got mixed up. Hover over Kido with the pointer and hit the T key. After a few seconds you should have control again and he should be he usual perky self again.</span><br><br>
+
+          <span class="faq-q">Q: Do you have a tip for playing with Kido?</span><br>
+          <span class="faq-a">A: Do consider taking him into a more neutral party (at least combined of several alignments) for Kido shines in his wickedness around good guys (also with evil ones, but i.e. the banters with Minsc are considered very good)</span><br><br>
+
+          <span class="faq-q">Q: I want spoilers! I want to know every possibility in which Kido talks.</span><br>
+          <span class="faq-a">A: Go to <a href="http://forums.spellholdstudios.net/index.php?s=f0e4572809fc416c034f908089da9cb9&showforum=149" target="_blank">the forum</a>. It is your best option for these kind of things. For instance; all interjections that are possible are mentioned there.</span><br><br>
+
+          <span class="faq-q">Q: I've found a bug / incompatibility / have a suggestion!</span><br>
+          <span class="faq-a">A: <a href="#contact">Contact me</a> and I'll deal with it as soon as possible.</span><br><br>
+
+          <span class="faq-q">Q: I've found a grammar error!</span><br>
+          <span class="faq-a">A: Again, <a href="#contact">contact me</a> and I'll change it.</span><br><br>
+
+          <span class="faq-q">Q: I want to translate the mod!</span><br>
+          <span class="faq-a">A: Great, really great! I love to have it in multiple languages. <a href="#contact">Contact me</a> or go to <a href="http://forums.spellholdstudios.net/index.php?s=f0e4572809fc416c034f908089da9cb9&showforum=149" target="_blank">the forum</a> and will talk. Oh, of course you will get all the credit for translating.</span><br>
+
+        </p>
+        <address>
+          <span class="address-footer-1">The Mod for the Wicked; Frequently Asked Questions</span>       <a href="#top">BACK TO TOP</a>  
+        </address>
+      </div>
+
+			<!-- ================== Version History ================== -->
+      <a name="version" id="version"></a>
+      <div>
+        <h4>
+          Version History
+        </h4>
+        <p class="version">
+					Version 7.0:
+        </p>
+        <ul class="version-list">
+	       	<li>Complete revision of all important files to the Mod for the Wicked prefix: MW</li>
+ 		<li>Little corrections.</li>
+ 		<li>Very small bug removed.</li>
+        </ul>
+        <p class="version">
+					Version 6.0 till 6.1:
+        </p>
+        <ul class="version-list">
+	       	<li>Complete revision of many globals for better implementation into MftW</li>
+ 		<li>Little corrections.</li>
+        </ul>
+        <p class="version">
+					Version 5.3:
+        </p>
+        <ul class="version-list">
+	       	<li>Implemented the CD_STATE_NOTVALID check, making it impossible for dialogues to fire at wrong moments</li>
+ 		<li>Three typos corrected.</li>
+ 		<li>Added version 5.1 in the readme. :p</li>
+        </ul>
+        <p class="version">
+					Version 5.2:
+        </p>
+        <ul class="version-list">
+	       	<li>Bugs involving Carston and Cyric removed.</li>
+ 		<li>Bugs removed revolving Kido's initiation dialogue and status of HD quest.</li>
+        </ul>
+        <p class="version">
+					Version 5.1:
+        </p>
+        <ul class="version-list">
+	       	<li>A few small 'new release' bugs removed.</li>
+         </ul>
+
+        <p class="version">
+					Version 5.0:
+        </p>
+        <ul class="version-list">
+	       	<li>Bugs removed, including the well-known Balthazar bug</li>
+        	<li>A few tweaks made to some scripts</li>
+        	<li>7 new banters added (Korgan, Cernd, Valygar, Yoshimo, Edwin and Sarevok (twice))</li>
+        	<li>One new short conversation with the PC added for ToB</li>
+        </ul>
+
+        <p class="version">
+					Version 4.1:
+        </p>
+        <ul class="version-list">
+	       	<li>Bugs removed</li>
+        	<li>Refinements made</li>
+        	<li>Cutscenes now display animations as originally intended</li>
+        	<li>Improved installation</li>
+        </ul>
+
+        <p class="version">
+					Version 4.0:
+        </p>
+        <ul class="version-list">
+	       	<li>Bugs removed</li>
+        	<li>Refinements and extensions made</li>
+        	<li>Interjections added</li>
+        	<li>More conversations with the PC added</li>
+        	<li>Two new banters (Aerie (SoA) and Haer'Dalis (ToB))</li>
+        	<li>Personal quest added</li>
+        	<li>Personal challenge added</li>
+        	<li>Stringfixer (hit the T key)</li>
+        </ul>
+
+        <p class="version">
+					Version 3.1 till 3.3:
+        </p>
+        <ul class="version-list">
+        	<li>By accident added an old dagger. This has been undone</li>
+        	<li>Some bugs removed and refinements made (3.2 and 3.3)</li>
+        </ul>
+
+        <p class="version">
+					Version 3.0:
+        </p>
+        <ul class="version-list">
+        	<li>Interjections (In SoA and ToB)</li>
+        	<li>A brand new item obtained at very high level</li>
+        	<li>Some extra banter (Mazzy, Jaheira, Sarevok, Edwin and Anomen)</li>
+        	<li>Extra sounds</li>
+        	<li>Voiceset redone due to the bad quality of the former</li>
+        	<li>Kido's Dagger downgraded to 4 rounds of stunning and number of attacks corrected (upgraded Dagger is now stronger)</li>
+        	<li>Due to grammar checks, Korgan talks now in a correct way in the 'Dwarven Common' and other grammar mistakes fixed.</li>
+        	<li>Some minor corrections not made in version 2.1</li>
+        	<li>Big mistake corrected causing Kido never to talk to the PC (strange that I never heard comments on it)</li>
+        	<li>Two custom portraits, though you can still opt for his old one</li>
+        </ul>
+
+        <p class="version">
+					Version 2.1:
+        </p>
+        <ul class="version-list">
+        	<li>banter problems corrected</li>
+        	<li>NPC combat problem corrected</li>
+        	<li>typos corrected</li>
+        </ul>
+
+        <p class="version">
+     				    	 Version 2.0:
+        </p>
+        <ul class="version-list">
+				  <li>ToB summonable</li>
+				  <li>ToB banter</li>
+				  <li>Corruption of a Bioware NPC (this only works if you had Kido from the beginning and he had all banters with that person)</li>
+        </ul>
+
+        <p class="version">
+					Version 1.0:
+				</p>
+        <ul class="version-list">
+				  <li>SoA Banters</li>
+				  <li>Unique voiceset</li>
+				  <li>Unique items (weapon and hood)</li>
+				  <li>Kido joinable NPC</li>
+
+        </ul>
+        <address>
+          <span class="address-footer-1">The Mod for the Wicked; Version History</span>
+                <a href="#top">BACK TO TOP</a>
+        </address>
+      </div>
+
+			<!-- ================== Credits ================== -->
+      <a name="credits" id="credits"></a>
+      <div>
+        <h4>
+          Credits
+        </h4>
+        <p>
+          This mod was made by the Deathsangel (on the forums) or better known as Guido Voets (when it comes to real life)
+        </p>
+
+				<h5>I want to thank:</h5>
+
+        <p class="faq-q">
+          The people who made this possible, by creating amazing modding tools. The ones I used:
+        </p>
+        <ul class="version-list">
+					<li>WeiDu</li>
+					<li>DLTCEP</li>
+					<li>NearInfinity</li>
+					<li>InfinityExplorer</li>
+					<li>Creative Recorder</li>
+					<li>AudaCity</li>
+					<li>NotePad :p</li>
+        </ul>
+        
+        <p class="faq-q">
+          People I really need to mention:
+        </p>
+        <ul class="version-list">
+		<li>Diana (Grammar checking everything, debugging and even a few small scripts)</li>
+		<li>Keryvian (for debugging)</li>
+        </ul>
+
+        <p class="faq-q">
+          People that I also want to mention:
+        </p>
+        <ul class="version-list">
+					<li>Plasmocat (portaits)</li>
+					<li>Black Mage (portaits)</li>
+					<li>The Wizard (mirrors)</li>
+					<li>Baronius (mirror)</li>
+					<li>Ghreyfain (his Rudimentary NPC Guide got me started with all of this)</li>
+					<li>ppl at the forums for technical help (mostly SHS, G3 and PocketPlane)</li>
+					<li>fans at SHS (for keeping my spirits up and reporting grammar mistakes & bugs)</li>
+        </ul>
+
+
+        <address>
+          <span class="address-footer-1">The Mod for the Wicked; Credits</span>
+          <a href="#top">BACK TO TOP</a>
+        </address>
+      </div>
+
+      <!-- ================== C O N T A C T   I N F O ================== -->
+      <a name="contact" id="contact"></a>
+      <div>
+        <h4>
+          Contact Info:
+        </h4>
+        <p>
+        	I welcome any kind of bug report, incompatibility issue report, suggestion and constructive
+        	criticism, and I'll take it in highest consideration - please, keep the trolling to yourself.
+          <br>The method of contacting me I prefer is via <a href="http://forums.spellholdstudios.net/index.php?s=f0e4572809fc416c034f908089da9cb9&showforum=149" target="_blank">the forum</a>,
+					since this way all the interested players will be able to contribute their ideas.
+					<br>However, if you prefer to contact only me, this is the e-mail address: </p>
+        	<script type="text/javascript">
+						<!--
+								document.write("<p>");
+								mail("deathsangel### no@way.spammers ###spellholdstudios.net### you.wont.get@it ###The Deathsangel");
+								document.write("</p>");
+						-->
+					</script>
+        <p>If you turned off JavaScript and didn't see a link above, you'll have to
+				work out the real address by hand (sorry, protecting against spammers is a 
+				necessity right now):</p>
+          <p>spellholdstudios.net after the usual symbol, deathsangel before.</p>
+        </ul>
+        <address>
+          <span class="address-footer-1">The Mod for the Wicked; Contact Info</span>
+					<a href="#top">BACK TO TOP</a>
+        </address>
+      </div>
+
+    </div>
+  <!--<script language="javascript">postamble();</script>-->
+</body></html>
